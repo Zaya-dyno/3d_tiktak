@@ -5,20 +5,21 @@ using UnityEngine;
 public class cameraCtrl : MonoBehaviour
 {
     Dictionary<View, (Vector3, Vector3)> cameraPst = new Dictionary<View, (Vector3, Vector3)> { };
-    public View view = View.Z;
+    public View view = View.Y;
 
     public enum View
     {
-        Z,
+        X,
         Y,
-        X
+        Z
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraPst[View.Z] = (new Vector3(-0.6F, 2.5F, -5F), Vector3.zero);
-        cameraPst[View.X] = (new Vector3(), new Vector3());
+        cameraPst[View.X] = (new Vector3(5F, 2.5F, -0.6F), new Vector3(0,-90F,0));
+        cameraPst[View.Y] = (new Vector3(-1.4F,10F, -0.6F), new Vector3(90,180,-90));
+        cameraPst[View.Z] = (new Vector3(-0.6F, 2.5F, 5F), new Vector3(0, 180F, 0));
     }
 
     // Update is called once per frame

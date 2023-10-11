@@ -566,7 +566,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {x: 0, y: 0, z: 0}
   ball_size: 1
-  material: {fileID: 2100000, guid: 5fe3b502b893846d7a2abe93f7eb7590, type: 2}
+  materials:
+  - {fileID: 2100000, guid: a28167714eaef4bb8bf2db30fb0173b9, type: 2}
+  - {fileID: 2100000, guid: 5fe3b502b893846d7a2abe93f7eb7590, type: 2}
+  - {fileID: 2100000, guid: 47ab3b25707234c879859e2c28b8e8d0, type: 2}
   side: 4
   dis: 0.1
 --- !u!4 &1257549294
