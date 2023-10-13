@@ -222,13 +222,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 5, z: 10}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 5, z: -9.99}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1979450247}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!1 &198727387
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1979450247}
@@ -490,7 +490,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
@@ -515,13 +515,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 2.5, z: -5}
+  m_LocalRotation: {x: -0.14126526, y: 0.7591903, z: -0.20323813, w: -0.60197055}
+  m_LocalPosition: {x: 9.31, y: 10, z: -2.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.598, y: 257.325, z: 1.971}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +534,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31964b5d7bca4c5d96e4794804e0a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: 0
+  sensitivity: 0
+  change: 0
+  upBoost: 0
+  center: {x: -2.7, y: 2.3, z: -2.7}
+  minH: 0
+  maxH: 0
+  minV: 0
+  maxV: 0
 --- !u!1 &1257549292
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b38182b84774074a8b46f1e050116d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edge: {x: 0, y: 0, z: 0}
   center: {x: 0, y: 0, z: 0}
   ball_size: 1
   materials:
@@ -581,7 +589,7 @@ Transform:
   m_GameObject: {fileID: 1257549292}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 5}
+  m_LocalPosition: {x: -5, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
