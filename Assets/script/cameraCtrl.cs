@@ -23,7 +23,7 @@ public class cameraCtrl : MonoBehaviour
         sensitivity = 200;
         change = false;
         upBoost = 1.5F;
-        transform.localPosition = new Vector3(6, 2.3F, -2.7F);
+        transform.localPosition = new Vector3(8, 2.3F, -2.7F);
         transform.localRotation = Quaternion.Euler(Vector3.up * -90);
         initialVectorH = transform.position - center;
         initialVectorV = initialVectorH;
