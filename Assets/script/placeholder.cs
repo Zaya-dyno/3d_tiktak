@@ -13,6 +13,7 @@ public class Placeholder : MonoBehaviour
     public float ball_size;
     public Material[] materials_player = new Material[2]; // Player1, Player2
     public Material[] materials_place = new Material[5];
+    private int[] layers_int;
     public State state;
     public Material materials_line;
     public float radius_line;
@@ -23,6 +24,15 @@ public class Placeholder : MonoBehaviour
     GameObject[,,] gameArea;
     Ray ray;
     RaycastHit hitdata;
+
+    void create_layers()
+    {
+        layers_int = new int[side];
+        for(int i = 0; i < side; i++)
+        {
+            layers_int[i] = LayerMask.NameToLayer("Ball_" + i.ToString());
+        }
+    }
 
     void create_balls()
     {
@@ -39,6 +49,8 @@ public class Placeholder : MonoBehaviour
                     t.transform.localPosition = location + (ball_size + dis) * new Vector3(x, y, z);
                     t.transform.localScale = new Vector3(ball_size, ball_size, ball_size);
                     t.GetComponent<MeshRenderer>().material = materials_place[y];
+                    t.layer = layers_int[y];
+                    t.name = "Ball_" + x.ToString() + "_" + y.ToString() + "_" + z.ToString();
                     gameArea[x, y, z] = t;
                 }
             }
@@ -80,6 +92,7 @@ public class Placeholder : MonoBehaviour
     {
         old_height = -1;
         state = new State();
+        create_layers();
         create_balls();
         create_lines();
         
@@ -116,9 +129,9 @@ public class Placeholder : MonoBehaviour
             height -= 1;
         }
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hitdata, 1000))
+        if (Physics.Raycast(ray, out hitdata, 1000, 1 << layers_int[height]) )
         {
-            selectedObject = hitdata.transform.gameObject;
+            Debug.Log(hitdata.transform.gameObject.name);
         }
     }
 }
