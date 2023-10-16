@@ -14,6 +14,7 @@ public class Placeholder : MonoBehaviour
     public Material[] materials_player = new Material[2]; // Player1, Player2
     public Material[] materials_place = new Material[5];
     private int[] layers_int;
+    public (int, int, int) selected;
     public State state;
     public Material materials_line;
     public float radius_line;
@@ -21,6 +22,7 @@ public class Placeholder : MonoBehaviour
     public int height;
     public int old_height;
     public float dis = 0.25F;
+    public int turn;
     GameObject[,,] gameArea;
     Ray ray;
     RaycastHit hitdata;
@@ -90,12 +92,12 @@ public class Placeholder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        turn = 0;
         old_height = -1;
         state = new State();
         create_layers();
         create_balls();
         create_lines();
-        
     }
 
     // Update is called once per frame
@@ -131,7 +133,20 @@ public class Placeholder : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hitdata, 1000, 1 << layers_int[height]) )
         {
-            Debug.Log(hitdata.transform.gameObject.name);
+            string hit = hitdata.transform.gameObject.name;
+            selected = (hit[5] - 48, hit[7] - 48, hit[9] - 48);
+        } else
+        {
+            selected = (-1, -1, -1);
+        }
+        if (Input.GetMouseButtonDown(0) && selected.Item1 != -1)
+        {
+            int ret = state.placement(turn + 1, selected);
+            if(ret == 0)
+            {
+                gameArea[selected.Item1, selected.Item2, selected.Item3].GetComponent<MeshRenderer>().material = materials_player[turn];
+                turn = (turn + 1) % 2;
+            }
         }
     }
 }

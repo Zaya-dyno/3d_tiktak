@@ -23,7 +23,7 @@ public class State
         return placement(2, place);
     }
 
-    private int placement(int player, (int, int, int) place)
+    public int placement(int player, (int, int, int) place)
     {
         if (board[place.Item1, place.Item2, place.Item3] == 0)
         {
