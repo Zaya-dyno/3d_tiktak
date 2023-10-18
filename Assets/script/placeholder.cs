@@ -22,7 +22,8 @@ public class Placeholder : MonoBehaviour
     public int height;
     public int old_height;
     public float dis = 0.25F;
-    public int turn;
+    static public int turn;
+    static public int winner;
     GameObject[,,] gameArea;
     Ray ray;
     RaycastHit hitdata;
@@ -92,6 +93,7 @@ public class Placeholder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        winner = 0;
         turn = 0;
         old_height = -1;
         state = new State();
@@ -146,6 +148,7 @@ public class Placeholder : MonoBehaviour
             {
                 gameArea[selected.Item1, selected.Item2, selected.Item3].GetComponent<MeshRenderer>().material = materials_player[turn];
                 turn = (turn + 1) % 2;
+                //texts.setTurn();
             }
         }
     }
